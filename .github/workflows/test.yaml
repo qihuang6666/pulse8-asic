@@ -1,0 +1,30 @@
+name: RTL and software verification
+on: [push, workflow_dispatch]
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install HDL tools
+        run: sudo apt-get update && sudo apt-get install -y iverilog yosys
+      - name: Run software, waveform and synthesis checks
+        run: python tools/check.py --yosys yosys
+      - name: Install official gate-test dependencies
+        run: python -m pip install -r test/requirements.txt
+      - name: Validate official gate-test harness at RTL
+        run: make -C test
+      - name: Install bounded formal runner
+        run: python -m pip install yowasp-yosys==0.70.0.0.post1259
+      - name: Check core safety and scenario reachability
+        run: python tools/formal_check.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: verification-results
+          path: |
+            work/*.log
+            work/formal-results.json
+            work/cover_*.vcd
