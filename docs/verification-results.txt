@@ -1,5 +1,5 @@
-Pulse8 release-candidate local evidence
-Collected: 2026-11-11T23:00:35-05:00
+Pulse8 local functional evidence
+Collected: 2026-11-12T01:41:37-05:00
 
 Software: 14 unittest cases pass.
 At each of RTL, generic netlist and mapped CMOS5L functional netlist:

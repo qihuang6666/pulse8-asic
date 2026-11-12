@@ -22,8 +22,9 @@ actual SCLK edge, before the DUT's synchronized observation of that edge.
 ## I2C checks
 
 Both I2C examples require GPIO0=SDA, GPIO1=SCL, host open-drain mask `3`, and
-external pull-ups. The register pointer must be preloaded in the TX mailbox
-before START. Transmitted bytes are MSB-first; the final received byte is
+external pull-ups. For `i2c_register_read.p8`, preload the register pointer in
+the TX mailbox before START. `i2c_restart_read.p8` needs no TX preload.
+Transmitted bytes are MSB-first; the final received byte is
 returned through the RX mailbox. Every transmitted byte's ACK is checked.
 
 The target monitor decodes the write address, register pointer when present,

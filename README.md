@@ -1,13 +1,17 @@
 # Pulse8: programmable protocol stimulus and response timing
 
-[![RTL verification](https://github.com/qihuang6666/pulse8-asic/actions/workflows/test.yaml/badge.svg)](https://github.com/qihuang6666/pulse8-asic/actions/workflows/test.yaml)
-[![GDS and precheck](https://github.com/qihuang6666/pulse8-asic/actions/workflows/gds.yaml/badge.svg)](https://github.com/qihuang6666/pulse8-asic/actions/workflows/gds.yaml)
+[![Recorded verification](https://github.com/qihuang6666/pulse8-asic/actions/workflows/test.yaml/badge.svg?branch=electrical-repair)](https://github.com/qihuang6666/pulse8-asic/actions/runs/43157743977)
+[![Recorded GDS and precheck](https://github.com/qihuang6666/pulse8-asic/actions/workflows/gds.yaml/badge.svg?branch=electrical-repair)](https://github.com/qihuang6666/pulse8-asic/actions/runs/43157743973)
 
 Pulse8 is an open-source entry for the Jane Street protocol emulator ASIC competition. It turns eight digital pins into a programmable protocol instrument: generate transactions, react to received data, introduce deliberate protocol errors, and measure response intervals without a host round trip.
 
-**Release candidate: official physical build and precheck pending.** See the workflow badges and [verification report](docs/verification.md) for executed checks. Functional simulation does not establish silicon operation or electrical protocol compliance.
+**Official GDS, Tiny Tapeout precheck and gate-level tests pass at the 24 MHz target.** The exact hardened netlist also passes the expanded 272,551-assertion regression. The [physical review](docs/physical-review.md) records ten remaining antenna-diode-related maximum-fanout violations, alongside passing extracted capacitance, slew and timing checks. This is a documented competition submission candidate, not a claim of complete electrical-constraint closure or silicon validation.
+
+Badges link to the recorded `electrical-repair` candidate, commit `5a0acb27`; the release preserves its design inputs and adds evidence and a reproducible hardened-netlist test runner. See the [verification report](docs/verification.md) for the full scope.
 
 ## Architecture and purpose
+
+![Pulse8 architecture: host loader, programmable execution engine, coherent timer and eight GPIO pins](docs/architecture.svg)
 
 One engine executes 64 writable 32-bit instructions. Direct input sampling and receive-data branches let firmware make timing-sensitive decisions locally. A saturating 16-bit timer captures both timestamp bytes atomically before host backpressure can affect them. Bounded waits release all outputs on a timeout. Eight output enables and open-drain settings support bidirectional buses. There are no UART, SPI, I2C or JTAG-specific hardware blocks.
 
@@ -75,6 +79,7 @@ The driver fills unused addresses with HALT. Assembler `--packets` output contai
 - [Reactive timing demonstration](docs/event-capture.md)
 - [Protocol contracts and monitors](docs/protocol-demos.md)
 - [Verification evidence and limits](docs/verification.md)
+- [Physical implementation, timing and disclosed residuals](docs/physical-review.md)
 - [End-to-end mailbox stress](docs/mailbox-stress.md)
 - [AI assistance disclosure](docs/ai-usage.md)
 - [Submission checklist](docs/plan.md)

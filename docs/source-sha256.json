@@ -1,5 +1,5 @@
 {
-  "src/config.json": "18e9726fec1eacce24791ed03ea5cb1436f47348ccc122dceafec1bcb94daf43",
+  "src/config.json": "2571f2ea5b1c1b8dd7276d769d521e295068e0844f697f675939bae7cc8a9d1f",
   "src/host_spi.v": "bad58d8d13ff506c51b2816a9fd02d549d0adc572c355d19ec9d1918a2acc63d",
   "src/project.v": "8d3acf0c354664c9a11961af5ab4f7d287c4b3fa70cc458b1369687a253ebbef",
   "tools/assembler.py": "4050d7e143c313f6837f891e83bf9d18fe099f19b4962395b0f86484e8daecbf",
@@ -8,6 +8,7 @@
   "tools/formal_check.py": "63f0c40fb750e6c72d021f48f4bf6f638d5405ef37d6f40c13f7311211846e40",
   "tools/host.py": "1f0dd9b27d3f242fd0fcab3d4ea66944894f76c35e186739145b1be91e48e789",
   "tools/map_cmos5l.py": "c011006bf5c6afad20f3c2653dfa565de0ae0bcf26be387a5d6f58dd9fb8c547",
+  "tools/test_hardened.py": "9cf46c8102f3b7d4d29281e89af90e22e6ec70e246019ee3daecf2e7db487e95",
   "tests/tb_extensions.v": "6628107d045657f838d740df17bc72542db239b69d8c4844d28a25db9dec5195",
   "tests/tb_host_random.v": "e244d5d4daa5f9347d65d5426aff071caed88f25626b44a5b012f23dc9f9324e",
   "tests/tb_mailbox_random.v": "522ba9d36612be31c69de79bc95e30890a433c6aab29b8430d863677ae2dd694",

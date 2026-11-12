@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "simulation": "zero-delay FUNCTIONAL/SIM; no SDF or extracted delays",
+  "started_utc": "2026-11-12T05:55:29.527926+00:00",
+  "archive_sha256": "619f7ee289230331c2ea0cd2fd7a643b31a35763924264eda55de34468287420",
+  "provenance": {
+    "app": "Tiny Tapeout main 9d13ff3e",
+    "repo": "https://github.com/qihuang6666/pulse8-asic",
+    "commit": "5a0acb27e641263d98e931b72a4e8f3eeb46664f",
+    "workflow_url": "https://github.com/qihuang6666/pulse8-asic/actions/runs/43157743973"
+  },
+  "pdk": {
+    "FLOW_NAME": "LibreLane",
+    "FLOW_VERSION": "3.1.0.dev4",
+    "PDK": "ihp-sg13cmos5l",
+    "PDK_SOURCE": "IHP-Open-PDK",
+    "PDK_VERSION": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+  },
+  "models": {
+    "libs.ref/sg13cmos5l_io/verilog/sg13cmos5l_io.v": {
+      "git_blob": "ab0b13f734999aa2748c8432fdf182b5d6c785a4",
+      "sha256": "ae986803821a9d6c3af9c221c33c3aa58ca23c283d3ad93ed4b3a2c45d6ccb4d",
+      "source": "https://github.com/IHP-GmbH/IHP-Open-PDK/blob/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/verilog/sg13cmos5l_io.v"
+    },
+    "libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v": {
+      "git_blob": "ca53cb9a45c16d0ed276d396300760d372048b33",
+      "sha256": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055",
+      "source": "https://github.com/IHP-GmbH/IHP-Open-PDK/blob/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v"
+    },
+    "libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v": {
+      "git_blob": "0d8e5f4d1a8950c80cddbe1f5ecadc08d1a6aa52",
+      "sha256": "485945f1b167daa68354548f46c95bdbff7d931516fc5b4edd47f2e2cd555735",
+      "source": "https://github.com/IHP-GmbH/IHP-Open-PDK/blob/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v"
+    }
+  },
+  "netlist_sha256": "4fcaa1d97e1d00d7138f8405d0a0a0605b66069d67e2b94dfce1c149f28560bd",
+  "rtl_lf_sha256": {
+    "src/project.v": "8d3acf0c354664c9a11961af5ab4f7d287c4b3fa70cc458b1369687a253ebbef",
+    "src/host_spi.v": "bad58d8d13ff506c51b2816a9fd02d549d0adc572c355d19ec9d1918a2acc63d"
+  },
+  "examples_sha256": {
+    "examples/i2c_register_read.p8": "3de13e6427ce6834620b3c6060f24b6d07e25601804e8b90e07fffca1536346c",
+    "examples/i2c_restart_read.p8": "e814e4c4752385ad54a98a442847ca7d4732a06f58fab6f1f43423574c37676d",
+    "examples/i2c_write.p8": "e684f2ff3d7214e22e9c31caac5829b619881423d3016a2ddf673cd3c8b316dd",
+    "examples/jtag_dr8.p8": "958824afef05392548899ef798a2cfaf3970e04a6ab38d689f89a3973df911ba",
+    "examples/pulse_capture.p8": "b6a419e2e72fb5c16574c49098651017383c94d48c8ffe5b44efbb3cb213c39b",
+    "examples/spi_mode0.p8": "39ef1d8a7e85ff8883e87e23fd90e95abbf8120264fc896bb31833fa74f05481",
+    "examples/spi_mode1.p8": "742c12755b6e1eaf0b5337d84879519fa3a378bc72942167663ae0655acb55ae",
+    "examples/spi_mode2.p8": "81c2e3e5c7a2a58cc64ebb8c95c5a1751038cea06cf644152d35f7a769e9cb5c",
+    "examples/spi_mode3.p8": "48093af528c2bad40c385141969955b99bebf689a288c80442083ba3e70ae8a4",
+    "examples/uart_bad_stop.p8": "892744581427c2f6b2550c4040b20b908528fb7969ef52d2f12e4bf6e499d04e",
+    "examples/uart_rx.p8": "7ffac3620f583a5b813fadb3f54a4d8cc6b0cda75175af20b78984799b42c565",
+    "examples/uart_tx.p8": "2cc48ce128935a08bb2ea17c223c1440dc9d726ca91096b96b1e0e64fe195928"
+  },
+  "vectors_sha256": {
+    "i2c_register_read.hex": "56f849eb54b30a715358809a1c7eb5fd1728c004c466e2dfe22838219123b971",
+    "i2c_restart_read.hex": "b93c69522ed42ec37cb493513ffd47529711b0d17e96d057836d771f9da21bb7",
+    "i2c_write.hex": "afe09610c57b87b25278c48a4be1f9b88727bcca564d28769651fe31c9e903b1",
+    "isa.hex": "1094160cf1a9e567f4d7df0dc5a72a9cd096f8cdd404ae0ca5c0d41c4e59c7e0",
+    "jtag_dr8.hex": "f64e622a60cebc19b2c735cfb7c119f41ea9d735153c4f4304e0bad9f6e7f7f6",
+    "pulse_capture.hex": "a90ce63926dd5e8853727e4e5bf389c844ef9e953447fcdf7735d1c5709bfa12",
+    "spi_mode0.hex": "5925a75e7676ddd801063e96f905bf49c99409951915de9715c57477bce53770",
+    "spi_mode1.hex": "15cf02f1d01d2957007a91559f9a1ebbee9700a1fa44e84986200bc771022149",
+    "spi_mode2.hex": "d5e46fc5b005b2da4e2e8a2da25c3e9ae5b06e1ac4d54ba25ae943060d0c62cf",
+    "spi_mode3.hex": "1636afca2ea1906d57721e84540f474308a88fc2a2f02f0e5bf5425c8f681bac",
+    "uart_bad_stop.hex": "abf50960f78612378716e0a7c9c2fa9a31c7a8afcaf5c708b57a618bd04a4781",
+    "uart_rx.hex": "d7e2bc3fe722154a0b8ed00790d2e93c89aee8744589d609a305063277b113fa",
+    "uart_tx.hex": "088b365f66118b2938ab9c2f996e73cfe106f1a4f004eb4515d7a94ef8dec4ac"
+  },
+  "assembler_sha256": "4050d7e143c313f6837f891e83bf9d18fe099f19b4962395b0f86484e8daecbf",
+  "runner_sha256": "9cf46c8102f3b7d4d29281e89af90e22e6ec70e246019ee3daecf2e7db487e95",
+  "jobs": 3,
+  "benches": {
+    "tb_system": {
+      "status": "pass",
+      "assertions": 18706,
+      "testbench_sha256": "01d33da3dc1ca1902df0235d04596d3b93d44def29dc7b54e456780b083fb884",
+      "log_sha256": "293f27b680495e4e92575146891d47d4aeeaa1cc2c30f70c5939a8ac789ca1f7"
+    },
+    "tb_extensions": {
+      "status": "pass",
+      "assertions": 2446,
+      "testbench_sha256": "6628107d045657f838d740df17bc72542db239b69d8c4844d28a25db9dec5195",
+      "log_sha256": "adac75561d592f14810a5e4a0b5ce96b9848cbe4815585c9c62a26c60a82e601"
+    },
+    "tb_protocol_extensions": {
+      "status": "pass",
+      "assertions": 251399,
+      "testbench_sha256": "a66d6faa3bdaa4780b905085ba7bd0b214a2a36cd25c2321a483bef4bfafcc72",
+      "log_sha256": "1c32a5c2f77b1ab6a2ad604cc7f0f3982054d3603eaf5aee043b75b63e537da7"
+    }
+  },
+  "completed_utc": "2026-11-12T06:02:44.990633+00:00"
+}

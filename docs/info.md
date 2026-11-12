@@ -77,7 +77,9 @@ One host must own the interface; multiple concurrent host clients are unsupporte
 Provide the clock, reset and host SPI through the Tiny Tapeout demo board or a
 documented host adapter. Only digital pads are exposed. The demo board I/O is
 3.3 V according to the competition announcement; verify board wiring before use.
-The proposed 24 MHz clock remains subject to post-route timing closure.
+The 24 MHz target passes the recorded post-route static timing checks. See the
+[physical review](physical-review.md) for constraints, corners and disclosed
+fanout residuals; board operation has not been measured.
 
 UART: GPIO0 is TX or RX, depending on the selected example. Use a logic-level
 UART partner, with external level conversion when needed.
@@ -87,7 +89,7 @@ the partner's mode. Preload TX before START, then read RX after the transfer.
 
 I2C: GPIO0=SDA and GPIO1=SCL, both with pull-ups to the compatible I/O supply.
 Configure open-drain mask 0x03. Choose pull-ups for the actual bus capacitance
-and required rise time. The example addresses 0x50 and writes one byte.
+and required rise time. The examples address 0x50; see [protocol contracts](protocol-demos.md) for write, register-read and stretching-aware repeated-START variants.
 
 No board experiment has been run yet. The Python host driver requires an
 adapter to the selected microcontroller/SPI API. Reset or deselection loses the

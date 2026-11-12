@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Pulse8 architecture</title>
+  <desc id="desc">A host SPI loader writes a 64 by 32 bit instruction store while the engine is stopped. One execution engine has an eight-bit accumulator A, eight-bit input shift register ISR, program counter, loop register, and delay and wait counters. One-byte TX and RX mailboxes connect it to the host. Eight GPIO inputs pass through two-flop synchronizers. Output latches and direction bits drive eight programmable pins with host-configured open-drain enables. A sixteen-bit saturating timer provides coherent capture into ISR and A.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #183148; }
+      .title { font-size: 38px; font-weight: 700; }
+      .subtitle { font-size: 22px; fill: #536679; }
+      .heading { font-size: 23px; font-weight: 700; }
+      .body { font-size: 20px; }
+      .small { font-size: 17px; }
+      .label { font-size: 17px; fill: #415a70; }
+      .mono { font-family: Consolas, 'Courier New', monospace; font-size: 17px; }
+      .box { stroke: #829bb1; stroke-width: 2; rx: 14; }
+      .data { fill: none; stroke: #355d80; stroke-width: 3; stroke-linejoin: round; marker-end: url(#arrow); }
+      .control { fill: none; stroke: #7a659c; stroke-width: 2.5; stroke-dasharray: 8 6; stroke-linejoin: round; marker-end: url(#control-arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 Z" fill="#355d80"/></marker>
+    <marker id="control-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 Z" fill="#7a659c"/></marker>
+  </defs>
+  <rect width="1600" height="980" fill="#fff"/>
+  <text class="title" x="60" y="62">Pulse8</text>
+  <text class="subtitle" x="60" y="98">One programmable engine for digital protocol generation, response decisions and event capture</text>
+
+  <!-- Paths are drawn first so node boundaries remain visually clear. -->
+  <path class="data" d="M340 195 H750"/>
+  <text class="label" x="425" y="179">program writes while stopped</text>
+  <path class="control" d="M340 285 H685 V390 H750" marker-start="url(#control-arrow)"/>
+  <text class="label" x="392" y="269">START / STOP and snapshots</text>
+  <path class="data" d="M200 330 V465 H410"/>
+  <text class="label" x="222" y="447">host enqueue</text>
+  <path class="data" d="M410 655 H145 V330"/>
+  <text class="label" x="182" y="637">snapshot / consume</text>
+  <path class="data" d="M630 465 H750"/>
+  <text class="label" x="658" y="449">PULL</text>
+  <path class="data" d="M750 655 H630"/>
+  <text class="label" x="657" y="639">PUSH</text>
+  <path class="data" d="M830 280 V360"/>
+  <text class="label" x="758" y="324">word</text>
+  <path class="control" d="M1010 360 V280"/>
+  <text class="label" x="1019" y="324">PC</text>
+  <path class="data" d="M1335 280 V322 H1055 V360"/>
+  <text class="label" x="1130" y="310">IN / SAMPLE / WAIT</text>
+  <path class="data" d="M1090 555 H1210"/>
+  <text class="label" x="1104" y="518">pin data</text>
+  <text class="label" x="1104" y="539">+ direction</text>
+  <path class="data" d="M1335 710 V805"/>
+  <text class="label" x="1350" y="751">uio_out[7:0]</text>
+  <text class="label" x="1350" y="774">uio_oe[7:0]</text>
+  <path class="data" d="M1540 865 H1575 V210 H1540"/>
+  <text class="label" x="1561" y="444" transform="rotate(-90 1561 444)">uio_in[7:0]</text>
+  <path class="control" d="M815 710 V805"/>
+  <text class="label" x="718" y="761">TRESET</text>
+  <path class="data" d="M1000 805 V710"/>
+  <text class="label" x="1015" y="751">TSTAMP</text>
+  <text class="label" x="1015" y="774">ISR:A</text>
+
+  <rect class="box" x="60" y="140" width="280" height="190" fill="#edf5fd"/>
+  <text class="heading" x="82" y="178">Host SPI + control</text>
+  <text class="body" x="82" y="212">SCLK, MOSI, CSn in</text>
+  <text class="body" x="82" y="240">MISO + status out</text>
+  <text class="small" x="82" y="274">40-bit frame validation</text>
+  <text class="small" x="82" y="300">Loader, commands, snapshots</text>
+
+  <rect class="box" x="750" y="140" width="340" height="140" fill="#f2eef9"/>
+  <text class="heading" x="774" y="178">Instruction store</text>
+  <text class="body" x="774" y="214">64 × 32 bits; writable via host</text>
+  <text class="body" x="774" y="242">64 validity bits guard execution</text>
+  <text class="small" x="774" y="265">Unloaded instruction → safe fault</text>
+
+  <rect class="box" x="410" y="410" width="220" height="110" fill="#f4f7fa"/>
+  <text class="heading" x="432" y="447">TX mailbox</text>
+  <text class="body" x="432" y="477">1 byte + valid bit</text>
+  <text class="small" x="432" y="503">Host → A</text>
+  <rect class="box" x="410" y="600" width="220" height="110" fill="#f4f7fa"/>
+  <text class="heading" x="432" y="637">RX mailbox</text>
+  <text class="body" x="432" y="667">1 byte + valid bit</text>
+  <text class="small" x="432" y="693">A or ISR → host</text>
+
+  <rect class="box" x="750" y="360" width="340" height="350" fill="#edf5fd" stroke="#355d80"/>
+  <text class="heading" x="774" y="399">One execution engine</text>
+  <text class="body" x="774" y="430">6-bit PC · 8-bit loop register X</text>
+  <rect x="775" y="452" width="125" height="61" rx="8" fill="#fff" stroke="#829bb1"/>
+  <rect x="940" y="452" width="125" height="61" rx="8" fill="#fff" stroke="#829bb1"/>
+  <text class="heading" x="806" y="490">A (8)</text>
+  <text class="heading" x="962" y="490">ISR (8)</text>
+  <path class="data" d="M940 482 H902"/>
+  <text class="small" x="883" y="538">MOVISR</text>
+  <text class="body" x="774" y="574">Shift, ALU and branches</text>
+  <text class="body" x="774" y="607">12-bit delay / WAIT counters</text>
+  <text class="small" x="774" y="646">PULL stalls when TX is empty</text>
+  <text class="small" x="774" y="674">PUSH stalls when RX is full</text>
+
+  <rect class="box" x="1210" y="140" width="330" height="140" fill="#eef8f3"/>
+  <text class="heading" x="1234" y="178">Input synchronizers</text>
+  <text class="body" x="1234" y="214">Two flip-flops per GPIO input</text>
+  <text class="body" x="1234" y="242">All 8 inputs sampled by clk</text>
+  <text class="small" x="1234" y="265">Readback includes driven pins</text>
+
+  <rect class="box" x="1210" y="490" width="330" height="220" fill="#eef8f3"/>
+  <text class="heading" x="1234" y="529">GPIO output control</text>
+  <text class="body" x="1234" y="565">8-bit latch + 8-bit direction</text>
+  <text class="body" x="1234" y="595">Host-configured open drain</text>
+  <text class="mono" x="1234" y="629">OE = dir &amp; ~(OD &amp; pins)</text>
+  <text class="small" x="1234" y="663">Reset / deselect / core fault:</text>
+  <text class="small" x="1234" y="688">all output enables forced off</text>
+
+  <rect class="box" x="750" y="805" width="340" height="120" fill="#fff6e8"/>
+  <text class="heading" x="774" y="843">16-bit elapsed timer</text>
+  <text class="body" x="774" y="874">Saturates at 65,535 clocks</text>
+  <text class="small" x="774" y="901">Counts running edges, including stalls</text>
+  <rect class="box" x="1210" y="805" width="330" height="120" fill="#eef8f3"/>
+  <text class="heading" x="1234" y="843">8 programmable pins</text>
+  <text class="body" x="1234" y="874">Tiny Tapeout bidirectional I/O</text>
+  <text class="small" x="1234" y="901">External pull-ups for open-drain use</text>
+
+  <path class="data" d="M60 830 H120"/>
+  <text class="small" x="136" y="836">Data and instruction paths</text>
+  <path class="control" d="M60 867 H120"/>
+  <text class="small" x="136" y="873">Control / address / status paths</text>
+  <text class="body" x="60" y="919">One system clock; no derived clocks.</text>
+  <text class="small" x="60" y="950">TSTAMP captures both timer bytes into ISR:A on one edge; each mailbox holds one byte.</text>
+</svg>

@@ -1,0 +1,934 @@
+{
+  "tested_commit": "5a0acb27e641263d98e931b72a4e8f3eeb46664f",
+  "gds_run": 43157743973,
+  "verification_run": 43157743977,
+  "status": "official flow passed with disclosed fanout residuals",
+  "precheck": {
+    "run": 43157743973,
+    "job": 131002801973,
+    "commit": "5a0acb27e641263d98e931b72a4e8f3eeb46664f",
+    "conclusion": "success",
+    "artifact": {
+      "id": 13921686006,
+      "name": "precheck_reports",
+      "sha256": "0c5e427d797e5688105f5a2377e357befcda1fd73ec110a8ab063e36ec42799f",
+      "size": 6869,
+      "created_at": "2026-11-12T06:39:19Z",
+      "expires_at": "2027-02-10T04:53:48Z"
+    },
+    "status": "pass",
+    "sha256_verified": "0c5e427d797e5688105f5a2377e357befcda1fd73ec110a8ab063e36ec42799f",
+    "checks": [
+      {
+        "name": "KLayout pin label overlapping drawing",
+        "time_seconds": 1.43,
+        "status": "pass"
+      },
+      {
+        "name": "KLayout SG13CMOS5L DRC",
+        "time_seconds": 2635.09,
+        "status": "pass"
+      },
+      {
+        "name": "KLayout zero area",
+        "time_seconds": 1.88,
+        "status": "pass"
+      },
+      {
+        "name": "KLayout Checks",
+        "time_seconds": 0.08,
+        "status": "pass"
+      },
+      {
+        "name": "Pin check",
+        "time_seconds": 0.13,
+        "status": "pass"
+      },
+      {
+        "name": "Boundary check",
+        "time_seconds": 0.11,
+        "status": "pass"
+      },
+      {
+        "name": "Layer check",
+        "time_seconds": 0.08,
+        "status": "pass"
+      },
+      {
+        "name": "Cell name check",
+        "time_seconds": 0.04,
+        "status": "pass"
+      },
+      {
+        "name": "Analog pin check",
+        "time_seconds": 0.0,
+        "status": "pass"
+      },
+      {
+        "name": "Verilog syntax check",
+        "time_seconds": 13.08,
+        "status": "pass"
+      }
+    ],
+    "applicable_check_count": 10,
+    "report_databases": [
+      {
+        "file": "drc_pin_label_purposes_overlapping_drawing.xml",
+        "items": 0
+      },
+      {
+        "file": "drc_sg13cmos5l.xml",
+        "items": 0
+      },
+      {
+        "file": "drc_zero_area.xml",
+        "items": 0
+      }
+    ],
+    "archive_members": [
+      "drc_pin_label_purposes_overlapping_drawing.xml",
+      "drc_sg13cmos5l.xml",
+      "drc_zero_area.xml",
+      "results.md",
+      "results.xml"
+    ],
+    "results_xml_sha256": "91c362a86b410e71d5382369a70b107a02abc1379753fde6722a3dadbb420819",
+    "job_log_sha256": "cd3850acfe131f150d036d5cd0721bdbf1684aba64514da1b67dc8fbf958fbd8"
+  },
+  "period_ns": 41.666667,
+  "tile_size": "8x4",
+  "die_dimensions_um": [
+    1724.16,
+    710.64
+  ],
+  "die_area_um2": 1225257.0624,
+  "standard_cells_excluding_fill": 14386,
+  "standard_cell_area_um2": 286947,
+  "flip_flops": 2381,
+  "routed_wire_length_um": 717879,
+  "checks": {
+    "design__lint_error__count": 0,
+    "design__lint_timing_construct__count": 0,
+    "design__inferred_latch__count": 0,
+    "design__instance_unmapped__count": 0,
+    "synthesis__check_error__count": 0,
+    "design__max_slew_violation__count": 0,
+    "design__max_fanout_violation__count": 10,
+    "design__max_cap_violation__count": 0,
+    "timing__hold_vio__count": 0,
+    "timing__setup_vio__count": 0,
+    "design__power_grid_violation__count": 0,
+    "route__drc_errors": 0,
+    "antenna__violating__nets": 0,
+    "antenna__violating__pins": 0,
+    "design__critical_disconnected_pin__count": 0,
+    "timing__unannotated_net_filtered__count": 0,
+    "magic__drc_error__count": 0,
+    "magic__illegal_overlap__count": 0,
+    "design__lvs_error__count": 0,
+    "design__lvs_device_difference__count": 0,
+    "design__lvs_net_difference__count": 0,
+    "design__lvs_property_fail__count": 0,
+    "design__lvs_unmatched_device__count": 0,
+    "design__lvs_unmatched_net__count": 0,
+    "design__lvs_unmatched_pin__count": 0
+  },
+  "timing": [
+    {
+      "name": "nom_fast_1p32V_m40C",
+      "setup_ws_ns": 23.955245576343987,
+      "hold_ws_ns": 0.08625150837679949,
+      "independent_register_clock_min_period_ns_rounded": 3.98
+    },
+    {
+      "name": "nom_slow_1p08V_125C",
+      "setup_ws_ns": 22.794758725770354,
+      "hold_ws_ns": 0.6242824212055268,
+      "independent_register_clock_min_period_ns_rounded": 9.28
+    },
+    {
+      "name": "nom_typ_1p20V_25C",
+      "setup_ws_ns": 23.544628246805694,
+      "hold_ws_ns": 0.2976221575652986,
+      "independent_register_clock_min_period_ns_rounded": 5.92
+    }
+  ],
+  "timing_summary_limit": "Infinity in all corners is a reporting-selection sentinel, not an infinite timing margin or absent register analysis.",
+  "timing_interpretation_sources": [
+    {
+      "url": "https://github.com/librelane/librelane/blob/3.1.0.dev4/librelane/scripts/openroad/sta/corner.tcl#L269",
+      "purpose": "Violation enumeration count; no configured cap"
+    },
+    {
+      "url": "https://github.com/librelane/librelane/blob/3.1.0.dev4/librelane/scripts/openroad/sta/corner.tcl#L327",
+      "purpose": "Unrestricted endpoint-winner query then reg-reg filtering"
+    },
+    {
+      "url": "https://github.com/librelane/librelane/blob/3.1.0.dev4/librelane/scripts/openroad/common/io.tcl#L642",
+      "purpose": "Explicit1e30 sentinel conversion to inf"
+    },
+    {
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/857316ff001b2a8dbbdc5996944d08a6d38c87ab/search/Search.tcl#L173",
+      "purpose": "Default one path per endpoint"
+    },
+    {
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/857316ff001b2a8dbbdc5996944d08a6d38c87ab/search/Search.tcl#L1119",
+      "purpose": "Clock minimum-period report excludes IO by default"
+    },
+    {
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/857316ff001b2a8dbbdc5996944d08a6d38c87ab/search/Sta.cc#L3230",
+      "purpose": "Same-clock same-edge setup filters and period-minus-slack computation"
+    },
+    {
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/857316ff001b2a8dbbdc5996944d08a6d38c87ab/search/Sta.cc#L3266",
+      "purpose": "Independent loop over every timing endpoint"
+    },
+    {
+      "url": "https://github.com/librelane/librelane/blob/3.1.0.dev4/librelane/scripts/openroad/sta/corner.tcl#L378",
+      "purpose": "Propagated/virtual label typo"
+    },
+    {
+      "url": "https://github.com/librelane/librelane/blob/3.1.0.dev4/nix/opensta.nix#L19",
+      "purpose": "Pinned OpenSTA source revision provenance"
+    }
+  ],
+  "fanout_load_accounting": [
+    {
+      "instance": "_08803_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_1",
+      "net": "_02708_",
+      "driver_ports": {
+        "A": "_02605_",
+        "X": "_02708_"
+      },
+      "reported_fanout": 14,
+      "sink_count": 14,
+      "antenna_count": 6,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_11",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_12",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_13",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_14",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_15",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_16",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_08804_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_10857_",
+          "cell": "sg13cmos5l_nand2_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12726_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13038_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13350_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13662_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13974_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_14286_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        }
+      ]
+    },
+    {
+      "instance": "_11500_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_1",
+      "net": "_05042_",
+      "driver_ports": {
+        "A": "_05041_",
+        "X": "_05042_"
+      },
+      "reported_fanout": 11,
+      "sink_count": 11,
+      "antenna_count": 6,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_2",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_3",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_4",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_5",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_6",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_7",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_11501_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12911_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12920_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12929_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12938_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        }
+      ]
+    },
+    {
+      "instance": "_11519_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_1",
+      "net": "_05058_",
+      "driver_ports": {
+        "A": "_05057_",
+        "X": "_05058_"
+      },
+      "reported_fanout": 11,
+      "sink_count": 11,
+      "antenna_count": 6,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_48",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_49",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_50",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_51",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_52",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_53",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_11520_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12806_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12815_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12824_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_12833_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        }
+      ]
+    },
+    {
+      "instance": "_09321_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_4",
+      "net": "_03053_",
+      "driver_ports": {
+        "X": "_03053_",
+        "A": "_03052_"
+      },
+      "reported_fanout": 10,
+      "sink_count": 10,
+      "antenna_count": 2,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_24",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_55",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_09345_",
+          "cell": "sg13cmos5l_nor2_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_10055_",
+          "cell": "sg13cmos5l_o21ai_1",
+          "pin": "A1"
+        },
+        {
+          "instance": "_10060_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        },
+        {
+          "instance": "_10065_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        },
+        {
+          "instance": "_10393_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        },
+        {
+          "instance": "_10550_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_10566_",
+          "cell": "sg13cmos5l_buf_2",
+          "pin": "A"
+        },
+        {
+          "instance": "_10723_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        }
+      ]
+    },
+    {
+      "instance": "_11415_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_1",
+      "net": "_04973_",
+      "driver_ports": {
+        "A": "_04972_",
+        "X": "_04973_"
+      },
+      "reported_fanout": 10,
+      "sink_count": 10,
+      "antenna_count": 5,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_36",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_56",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_57",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_58",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_59",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_11416_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13535_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13544_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13553_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13562_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        }
+      ]
+    },
+    {
+      "instance": "_11479_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_1",
+      "net": "_05025_",
+      "driver_ports": {
+        "A": "_05024_",
+        "X": "_05025_"
+      },
+      "reported_fanout": 10,
+      "sink_count": 10,
+      "antenna_count": 5,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_43",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_60",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_61",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_62",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_63",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_11480_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13080_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13092_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13101_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13110_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        }
+      ]
+    },
+    {
+      "instance": "_09148_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_4",
+      "net": "_02880_",
+      "driver_ports": {
+        "X": "_02880_",
+        "A": "_02815_"
+      },
+      "reported_fanout": 9,
+      "sink_count": 9,
+      "antenna_count": 1,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_20",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_09196_",
+          "cell": "sg13cmos5l_and4_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_09302_",
+          "cell": "sg13cmos5l_nand2_1",
+          "pin": "B"
+        },
+        {
+          "instance": "_09390_",
+          "cell": "sg13cmos5l_buf_2",
+          "pin": "A"
+        },
+        {
+          "instance": "_09560_",
+          "cell": "sg13cmos5l_nand2_1",
+          "pin": "B"
+        },
+        {
+          "instance": "_09929_",
+          "cell": "sg13cmos5l_a221oi_1",
+          "pin": "C1"
+        },
+        {
+          "instance": "_10276_",
+          "cell": "sg13cmos5l_and2_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_10305_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        },
+        {
+          "instance": "_10344_",
+          "cell": "sg13cmos5l_nor2_1",
+          "pin": "A"
+        }
+      ]
+    },
+    {
+      "instance": "_09198_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_8",
+      "net": "_02930_",
+      "driver_ports": {
+        "A": "_02807_",
+        "X": "_02930_"
+      },
+      "reported_fanout": 9,
+      "sink_count": 9,
+      "antenna_count": 1,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_22",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_09199_",
+          "cell": "sg13cmos5l_inv_2",
+          "pin": "A"
+        },
+        {
+          "instance": "_09216_",
+          "cell": "sg13cmos5l_nor2b_1",
+          "pin": "B_N"
+        },
+        {
+          "instance": "_09226_",
+          "cell": "sg13cmos5l_buf_2",
+          "pin": "A"
+        },
+        {
+          "instance": "_09997_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S1"
+        },
+        {
+          "instance": "_09998_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S1"
+        },
+        {
+          "instance": "_10002_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S1"
+        },
+        {
+          "instance": "_10279_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S1"
+        },
+        {
+          "instance": "_10280_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S1"
+        }
+      ]
+    },
+    {
+      "instance": "_09280_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_8",
+      "net": "_03012_",
+      "driver_ports": {
+        "A": "_03011_",
+        "X": "_03012_"
+      },
+      "reported_fanout": 9,
+      "sink_count": 9,
+      "antenna_count": 1,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_23",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_09281_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        },
+        {
+          "instance": "_09286_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        },
+        {
+          "instance": "_09313_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        },
+        {
+          "instance": "_09483_",
+          "cell": "sg13cmos5l_and2_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_09618_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        },
+        {
+          "instance": "_09619_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        },
+        {
+          "instance": "_09655_",
+          "cell": "sg13cmos5l_nand2b_1",
+          "pin": "A_N"
+        },
+        {
+          "instance": "_10396_",
+          "cell": "sg13cmos5l_mux4_1",
+          "pin": "S0"
+        }
+      ]
+    },
+    {
+      "instance": "_11390_",
+      "pin": "X",
+      "cell": "sg13cmos5l_buf_1",
+      "net": "_04952_",
+      "driver_ports": {
+        "A": "_04951_",
+        "X": "_04952_"
+      },
+      "reported_fanout": 9,
+      "sink_count": 9,
+      "antenna_count": 4,
+      "dummy_count": 0,
+      "sinks": [
+        {
+          "instance": "ANTENNA_32",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_33",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_34",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "ANTENNA_35",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A"
+        },
+        {
+          "instance": "_11391_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13704_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13716_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13725_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A"
+        },
+        {
+          "instance": "_13734_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "S"
+        }
+      ]
+    }
+  ],
+  "fanout_disposition": "Ten real violations of the unchanged scalar fanout limit of 8 remain. Each net has at most eight functional loads plus antenna diodes. Extracted capacitance, slew, setup and hold checks pass. This is a disclosed competition-candidate residual, not a foundry waiver or complete constraint closure.",
+  "warning_counts": {
+    "lint_timescale_generated_pdk": 106,
+    "raw_unannotated_drivers": 342,
+    "unused_top_inputs": 5,
+    "unloaded_clock_balancing_outputs": 337,
+    "filtered_unannotated_drivers": 0,
+    "partially_unannotated_drivers": 0,
+    "critical_disconnected_pins": 0
+  },
+  "tools": {
+    "flow": "LibreLane 3.1.0.dev4",
+    "pdk_repository": "IHP-GmbH/IHP-Open-PDK",
+    "pdk_commit": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+    "openroad_commit": "dcf36133a369abc8f3c5e5738cd4d82e4903c0e0",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f"
+  },
+  "artifacts": [
+    {
+      "id": 13919780222,
+      "name": "github-pages-1",
+      "sha256": "847d497c42039c534bde3f2282e243da6ce7663fc34b4b37935593ce1632bd3e",
+      "size": 14954144,
+      "expires_at": "2026-11-13T05:54:02Z"
+    },
+    {
+      "id": 13919570810,
+      "name": "GDS_logs",
+      "sha256": "29ee73b5a42b0b8be82eeb07d7624e31388229e9d5becc066394cf9476d15bb1",
+      "size": 146506637,
+      "expires_at": "2027-02-10T04:53:48Z"
+    },
+    {
+      "id": 13919283069,
+      "name": "gds_render",
+      "sha256": "4c0323138412e118151bda90d0d5841a29633748f5d0d97fb1e026d6b6a04ea1",
+      "size": 12603161,
+      "expires_at": "2027-02-10T04:53:48Z"
+    },
+    {
+      "id": 13918634713,
+      "name": "tt_submission",
+      "sha256": "619f7ee289230331c2ea0cd2fd7a643b31a35763924264eda55de34468287420",
+      "size": 6470174,
+      "expires_at": "2027-02-10T04:53:48Z"
+    },
+    {
+      "id": 13921686006,
+      "name": "precheck_reports",
+      "sha256": "0c5e427d797e5688105f5a2377e357befcda1fd73ec110a8ab063e36ec42799f",
+      "size": 6869,
+      "created_at": "2026-11-12T06:39:19Z",
+      "expires_at": "2027-02-10T04:53:48Z"
+    },
+    {
+      "id": 13916926676,
+      "name": "verification-results",
+      "sha256": "3090c7dc1b7e04385fd1e25da464cb1728aaa6f75dfc89173dc233e9f302d9d3",
+      "size": 58706,
+      "expires_at": "2027-02-10T04:53:48Z"
+    }
+  ],
+  "hardened_functional": {
+    "assertions": 272551,
+    "netlist_sha256": "4fcaa1d97e1d00d7138f8405d0a0a0605b66069d67e2b94dfce1c149f28560bd",
+    "scope": "FUNCTIONAL/SIM zero delay; no SDF or extracted delays"
+  }
+}
