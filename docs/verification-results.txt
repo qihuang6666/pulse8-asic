@@ -1,0 +1,113 @@
+Pulse8 release-candidate local evidence
+Collected: 2026-11-11T23:00:35-05:00
+
+Software: 14 unittest cases pass.
+At each of RTL, generic netlist and mapped CMOS5L functional netlist:
+  Original system: 18,706 assertions pass.
+  Reactive ISA/timing: 2,446 assertions pass.
+  Protocol expansion: 251,399 assertions pass (29 protocol scenarios).
+Host phase/framing: 240 frames, 1,040 assertions pass.
+Real-host mailbox stress: 512 ordered bytes, 1,564 frames, 8,340 assertions pass at RTL.
+Verilator lint: PASS, --Wall -Wno-DECLFILENAME.
+Bounded core safety: 33 assertion statements, 12 clock steps; four witnesses.
+
+Mapped actual standard cells: 9306 (one nonphysical scopeinfo excluded).
+Flip-flops: 2381. Library cell area: 192631.1436 um^2.
+Baseline cell area: 190211.1120 um^2; increase 1.2723%.
+Library: sg13cmos5l_stdcell_typ_1p20V_25C.lib.
+PDK: IHP-GmbH/ihp-sg13cmos5l, 597570eec556a473d1eedb22c055545d4522f442.
+Tools: Python3.12, Icarus13.0, Verilator5.050, Yosys0.70 (YoWASP).
+
+Scope: functional zero-delay netlists, no SDF. Preliminary mapping is not
+physical sign-off. Formal abstracts decoded host commands and uses digital
+two-state semantics, an initial reset and finite depth; not an unbounded proof.
+No hardware, analog CDC, measured pad timing or silicon validation is claimed.
+Official flow evidence is recorded separately in public GitHub Actions.
+Source fingerprints are SHA256 of canonical UTF8/LF source text, matching
+published files; they exclude generated work, caches and environment packages.
+
+rtl-tests
+PASS safety, host framing, mailboxes, arithmetic and branches
+PASS UART TX exact timing and UART RX framing
+PASS SPI modes 0, 1, 2, 3 full duplex at exact 100 kHz equivalent
+PASS I2C address/data, ACK, stretching, NACK and stuck-clock timeout
+ALL RTL TESTS PASSED: 18706 assertions
+tests/tb_system.v:281: $finish called at 6835245801 (1ps)
+
+extension-tests
+PASS: 2446 extension assertions; 256 ISR/AND/branch values, 256 SAMPLE values, timer/backpressure/saturation, 14 capture scenarios
+tests/tb_extensions.v:188: $finish called at 5740126000 (1ps)
+
+protocol-extension-tests
+PASS I2C register pointer/repeated START/read/NACK/STOP: four payloads
+PASS I2C repeated START read with target stretches in address, data and NACK
+PASS I2C injected NACK at both address phases and register-data phase
+PASS JTAG full TAP monitor from all 16 initial states and 16 payloads
+PASS programmed UART framing-error stimulus with idle recovery: two payloads
+ALL PROTOCOL EXTENSION TESTS PASSED: 251399 assertions
+tests/tb_protocol_extensions.v:290: $finish called at 33079284223 (1ps)
+
+generic-rtl-tests
+PASS safety, host framing, mailboxes, arithmetic and branches
+PASS UART TX exact timing and UART RX framing
+PASS SPI modes 0, 1, 2, 3 full duplex at exact 100 kHz equivalent
+PASS I2C address/data, ACK, stretching, NACK and stuck-clock timeout
+ALL RTL TESTS PASSED: 18706 assertions
+tests/tb_system.v:281: $finish called at 6835245801 (1ps)
+
+generic-extension-tests
+PASS: 2446 extension assertions; 256 ISR/AND/branch values, 256 SAMPLE values, timer/backpressure/saturation, 14 capture scenarios
+tests/tb_extensions.v:188: $finish called at 5740126000 (1ps)
+
+generic-protocol-extension-tests
+PASS I2C register pointer/repeated START/read/NACK/STOP: four payloads
+PASS I2C repeated START read with target stretches in address, data and NACK
+PASS I2C injected NACK at both address phases and register-data phase
+PASS JTAG full TAP monitor from all 16 initial states and 16 payloads
+PASS programmed UART framing-error stimulus with idle recovery: two payloads
+ALL PROTOCOL EXTENSION TESTS PASSED: 251399 assertions
+tests/tb_protocol_extensions.v:290: $finish called at 33079284223 (1ps)
+
+mapped-rtl-tests
+PASS safety, host framing, mailboxes, arithmetic and branches
+PASS UART TX exact timing and UART RX framing
+PASS SPI modes 0, 1, 2, 3 full duplex at exact 100 kHz equivalent
+PASS I2C address/data, ACK, stretching, NACK and stuck-clock timeout
+ALL RTL TESTS PASSED: 18706 assertions
+tests/tb_system.v:281: $finish called at 6835245801 (1ps)
+
+mapped-extension-tests
+PASS: 2446 extension assertions; 256 ISR/AND/branch values, 256 SAMPLE values, timer/backpressure/saturation, 14 capture scenarios
+tests/tb_extensions.v:188: $finish called at 5740126000 (1ps)
+
+mapped-protocol-extension-tests
+PASS I2C register pointer/repeated START/read/NACK/STOP: four payloads
+PASS I2C repeated START read with target stretches in address, data and NACK
+PASS I2C injected NACK at both address phases and register-data phase
+PASS JTAG full TAP monitor from all 16 initial states and 16 payloads
+PASS programmed UART framing-error stimulus with idle recovery: two payloads
+ALL PROTOCOL EXTENSION TESTS PASSED: 251399 assertions
+tests/tb_protocol_extensions.v:290: $finish called at 33079284223 (1ps)
+
+Host:
+HOST PHASE/FRAMING TESTS PASSED: 240 frames, 1040 assertions, seed=0x1248a5c3
+tests/tb_host_random.v:74: $finish called at 1381098000 (1ps)
+
+Mailbox stress:
+MAILBOX STRESS PASSED: 512 bytes, 1564 frames, 8340 assertions, 46 malformed, 222 empty POP, 130 late-arrival POP, 485 PULL handoffs; seed=0x6e4b2a19
+tests/tb_mailbox_random.v:173: $finish called at 13063564000 (1ps)
+
+Formal:
+{
+  "core_safety": "bounded pass",
+  "depth": 12,
+  "reachable_scenarios": [
+    "write_blocked",
+    "push_blocked",
+    "rx_pop",
+    "wait_timeout"
+  ],
+  "scope": "arbitrary decoded host requests; reset at first edge; arbitrary initial instruction memory; digital two-state model",
+  "unbounded_proof": false,
+  "assertion_statements": 33
+}

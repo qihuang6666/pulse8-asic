@@ -35,7 +35,7 @@ do not imply a uniform 100 kHz bus rate. Read loops are approximately 100 kHz.
 
 The stretch-capable example waits for SCL high in data, ACK, controller NACK,
 repeated START and STOP phases. Its nonzero WAIT timeout is 4095 system clocks,
-about 170.6 microseconds at 24 MHz. Tests inject a 480-clock low extension in
+about 170.6 microseconds at 24 MHz. Tests inject a 480-clock target SCL-low hold in
 three places: write address, read data and the controller NACK clock. This
 exercises the last-byte transition as well as the main loop.
 
@@ -88,3 +88,4 @@ raw assertion total. These tests remain finite digital functional simulations.
 See `verification.md` for the current RTL/netlist run status and physical-flow
 status. Passing this suite alone does not establish routed timing, electrical
 compatibility or silicon operation.
+

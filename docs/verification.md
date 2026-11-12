@@ -2,7 +2,7 @@
 
 ## Release candidate
 
-The reactive ISA and protocol expansion pass local software and RTL checks. The release pipeline is currently being executed against the expanded source; final results will be recorded in verification-results.txt and GitHub Actions. Do not apply the original prototype's mapped area or formal result to the expanded design.
+The expanded source passes 14 software tests and 272,551 assertions at each of RTL, generic-netlist and CMOS5L mapped functional levels. Host framing adds 1,040 assertions across 240 frames. An end-to-end real-SPI mailbox stress test passes 8,340 assertions over 512 ordered bytes and 1,564 frames, including malformed traffic, full-pipeline backpressure and late-arrival POP races. See mailbox-stress.md; this additional test is run at RTL. All 33 core assertion statements pass through 12 formal steps with four witnesses. Fresh mapping reports 9,306 actual cells, 2,381 flip-flops and 192,631.1436 square micrometers of cell area. See verification-results.txt, mapped-statistics.json, formal-results.json and source-sha256.json for reproducible evidence. The official physical workflow is still in progress.
 
 Current RTL suites cover the original host/UART/SPI/I2C cases, all 256 receive and sample values for the new data path, timer carry/saturation/backpressure, a reactive capture program, I2C read/repeated START, JTAG IR/DR transactions starting in all 16 TAP states, and deliberate UART framing errors. These are port-only tests loaded through real SPI; pin monitors decode protocol behavior independently of firmware.
 
@@ -27,3 +27,5 @@ No FPGA/board experiment, silicon operation, analog CDC/MTBF characterization, p
 ## Reproduction
 
 Run python tools/check.py --yosys yosys, python tools/formal_check.py, and make -C test after installing test/requirements.txt. For preliminary IHP mapping, use python tools/map_cmos5l.py --pdk-root /path/to/ihp-sg13cmos5l. The Windows helper tools/check-local.ps1 locates development tools and accepts -Synthesis -Map -Formal. All generated logs and vectors live in work/.
+
+

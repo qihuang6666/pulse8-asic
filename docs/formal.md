@@ -1,6 +1,6 @@
 # Bounded core safety checks
 
-The local Yosys SAT run passed all **33 assertions through 12 clock steps**.
+The core harness checks **33 assertion statements through 12 clock steps** by default. Current execution results are recorded in verification-results.txt and CI.
 It starts with a reset edge and leaves instruction memory arbitrary. All decoded
 host requests, payloads, enable/reset transitions and external GPIO inputs after
 that first edge are symbolic. One symbolic constant address selects a program
@@ -34,7 +34,7 @@ include no formal registers or assertions.
 
 ## Reachability checks
 
-Separate solver queries found witness traces within the same 12-step bound for:
+Separate solver queries require witness traces within the same 12-step bound for:
 
 1. A host program write attempted while the engine is running.
 2. A PUSH instruction blocked by a full RX mailbox.
@@ -70,4 +70,5 @@ The response is changed after the command byte to check snapshot stability.
 The test also checks exactly one commit/error per frame, received command/data,
 the RX snapshot flag and MISO's idle value. This tests digital phase relationships
 within the documented limit, not analog setup/hold margins or metastability.
+
 

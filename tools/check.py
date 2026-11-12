@@ -73,6 +73,9 @@ HALT
         run([args.iverilog,*ivl_args,'-g2012','-Wall','-s','tb_host_random','-o','work/host_random.vvp',
              'src/host_spi.v','tests/tb_host_random.v'],'host-phase-compile.log')
         run([args.vvp,*vvp_args,'work/host_random.vvp'],'host-phase-tests.log')
+        run([args.iverilog,*ivl_args,'-g2012','-Wall','-s','tb_mailbox_random','-o','work/mailbox_random.vvp',
+             'src/project.v','src/host_spi.v','tests/tb_mailbox_random.v'],'mailbox-stress-compile.log')
+        run([args.vvp,*vvp_args,'work/mailbox_random.vvp'],'mailbox-stress-tests.log')
     if args.yosys or args.yosys_wasm:
         script='read_verilog src/project.v src/host_spi.v; synth -top tt_um_pulse8_proto; check -assert; stat; write_verilog -noattr work/generic_netlist.v'
         command=[sys.executable,'-c','import sys; from yowasp_yosys import run_yosys; sys.exit(run_yosys(sys.argv[1:]))'] if args.yosys_wasm else [args.yosys]

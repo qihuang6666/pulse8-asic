@@ -1,0 +1,13 @@
+{
+  "core_safety": "bounded pass",
+  "depth": 12,
+  "reachable_scenarios": [
+    "write_blocked",
+    "push_blocked",
+    "rx_pop",
+    "wait_timeout"
+  ],
+  "scope": "arbitrary decoded host requests; reset at first edge; arbitrary initial instruction memory; digital two-state model",
+  "unbounded_proof": false,
+  "assertion_statements": 33
+}

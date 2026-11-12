@@ -70,13 +70,17 @@ The driver fills unused addresses with HALT. Assembler `--packets` output contai
 ## Documents and provenance
 
 - [Architecture and ISA](docs/architecture.md)
+- [Measured design tradeoffs](docs/design-tradeoffs.md)
 - [Pinout and host commands](docs/info.md)
 - [Reactive timing demonstration](docs/event-capture.md)
 - [Protocol contracts and monitors](docs/protocol-demos.md)
 - [Verification evidence and limits](docs/verification.md)
+- [End-to-end mailbox stress](docs/mailbox-stress.md)
 - [AI assistance disclosure](docs/ai-usage.md)
 - [Submission checklist](docs/plan.md)
 
 Official Tiny Tapeout IHP main-branch template, 8x4 CMOS5L tiles, 24 MHz target, top module `tt_um_pulse8_proto`, entrant identifier `qihuang6666`. New source and retained template files are Apache-2.0 licensed. Initial template revision: `4b1204ab387b5ab94db1d57067051d8d89a2f83c`.
 
 [Competition rules](https://blog.janestreet.com/protocol-emulator-asic-competition/) and [official template](https://github.com/TinyTapeout/ttihp-verilog-template).
+
+
